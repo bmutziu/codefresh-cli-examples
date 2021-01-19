@@ -9,7 +9,7 @@ spec:
   - type: git
     provider: github
     name: main
-    repo: vfarcic/codefresh-cli-examples
+    repo: bmutziu/codefresh-cli-examples
     events:
     - push
     branchRegex: /master/gi
@@ -21,12 +21,12 @@ spec:
       type: git-clone
       repo: '${{CF_REPO_OWNER}}/${{CF_REPO_NAME}}'
       revision: '${{CF_REVISION}}'
-      git: devops-catalog
+      git: github
     apply_env:
       title: Applying production environment
       image: codefresh/kubectl
       commands:
-      - kubectl config use-context my-cluster
+      - kubectl config use-context devops-catalog
       - kubectl get namespaces
   stages: []
 
